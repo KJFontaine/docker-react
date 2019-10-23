@@ -1,9 +1,9 @@
 sudo: required
-services: 
+services:
   - docker
 
 before_install:
   - docker build -t kjfontaine/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run kjfontaine/docker-react npm run test -- --coverage
+  - docker run -e CI=true kjfontaine/docker-react npm run test -- --coverage
