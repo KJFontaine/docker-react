@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docekr build -t kjfontaine/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run kjfontaine/docker-react npm run test -- --coverage
